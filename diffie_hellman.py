@@ -4,10 +4,10 @@ from secrets import randbits
 
 class Diffie(object):
     
-    def __init__(self, key_size, secret, key=0, generate=True):
+    def __init__(self, key_size, secret, key=0):
         self.key_size = key_size
         self.sys_seed = randbits(key_size)
-        if(generate):
+        if key==0:
             self.generate_public_secret()
         else:
             self.prime = key[0]
